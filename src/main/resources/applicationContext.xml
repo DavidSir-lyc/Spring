@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    beans头部配置详解:
+    1. xmlns=http://www.springframework.org/schema/beans
+      xmlns:xsi=http://www.w3.org/2001/XMLSchema-instance
+    是必须有的所有的spring配置文件都一样,因为beans是spring的根本
+    2. xmlns:xxx 这个是xml的命名空间，简单的理解是你要使用spring的哪些模块的内容
+    3. xsi:schemaLocation这个是为上面配置的命名空间指定xsd规范文件，在进行下面具体配置的时候就会根据这些xsd规范文件给出相应的提示，比如说每个标签是怎么写的，都有些什么属性是都可以智能提示的，以防配置中出错而不太容易排查，在启动服务的时候也会根据xsd规范对配置进行校验。
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+">
+    <!--
+        传统配置方式：
+        id: bean的唯一标识符
+        class: 指定bean的Java类名称
+        scope: 作用范围
+        lazy-init: 懒加载，让Spring容器在Bean首次用到时创建Bean实例，而不是在应用一启动就创建
+    -->
+    <bean id="springBean01" class="lyc.java.spring.LSpringBean01">
+        <property name="name" value="David"/>
+    </bean>
+
+    <!--
+        启用注解配置，打开组件扫描，spring扫描包下所有组件，并实例化为bean
+     -->
+    <context:component-scan base-package="lyc.java.spring"/>
+</beans>
