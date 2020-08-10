@@ -23,9 +23,9 @@
         scope: 作用范围
         lazy-init: 懒加载，让Spring容器在Bean首次用到时创建Bean实例，而不是在应用一启动就创建
     -->
-    <bean id="springBean01" class="lyc.java.spring.LSpringBean01">
+<!--    <bean id="springBean01" class="lyc.java.spring.LSpringBean01">
         <property name="name" value="David"/>
-    </bean>
+    </bean>-->
 
     <!--
         启用注解配置，打开组件扫描，spring扫描包下所有组件，并实例化为bean
